@@ -9,7 +9,7 @@ public class ClasseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id; // Changement de Long à int
 
     @Column(name = "class_name", nullable = false)
     private String className;
@@ -25,19 +25,20 @@ public class ClasseEntity implements Serializable {
     public ClasseEntity() {
     }
 
-    public ClasseEntity(Long id, String className, String description, SectorEntity sector) {
+    // Le constructeur a été mis à jour pour utiliser int pour l'id
+    public ClasseEntity(int id, String className, String description, SectorEntity sector) {
         this.id = id;
         this.className = className;
         this.description = description;
         this.sector = sector;
     }
 
-    // Getters & Setters
-    public Long getId() {
+    // Getters & Setters mis à jour pour utiliser int pour l'id
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

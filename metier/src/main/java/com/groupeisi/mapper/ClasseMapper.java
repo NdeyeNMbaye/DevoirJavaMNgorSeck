@@ -18,11 +18,10 @@ public class ClasseMapper {
         if (classe == null) return null;
 
         ClasseDto dto = new ClasseDto();
+        // Les deux méthodes getId() renvoient maintenant un type compatible
         dto.setId(classe.getId());
         dto.setClassName(classe.getClassName());
         dto.setDescription(classe.getDescription());
-        // Vous pouvez ajouter le mapping du secteur ici si vous le souhaitez
-        // dto.setSectorDto(SectorMapper.toSectorDto(classe.getSector()));
 
         return dto;
     }
@@ -31,11 +30,10 @@ public class ClasseMapper {
         if (dto == null) return null;
 
         ClasseEntity classe = new ClasseEntity();
+        // Les deux méthodes getId() renvoient maintenant un type compatible
         classe.setId(dto.getId());
         classe.setClassName(dto.getClassName());
         classe.setDescription(dto.getDescription());
-        // Vous pouvez ajouter le mapping du secteur ici si vous le souhaitez
-        // classe.setSector(SectorMapper.toSectorEntity(dto.getSectorDto()));
 
         return classe;
     }

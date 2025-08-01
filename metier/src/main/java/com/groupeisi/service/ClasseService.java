@@ -12,8 +12,7 @@ import java.util.stream.Collectors;
 public class ClasseService implements IClasseService {
 
     private final IClasseDao classeDao = new ClasseDao();
-    // On n'a plus besoin de cette ligne
-    // private final ClasseMapper classeMapper = ClasseMapper.INSTANCE;
+    // Votre commentaire est correct, on n'a plus besoin d'instancier un mapper si ses méthodes sont statiques.
 
     @Override
     public List<ClasseDto> getAll() {
@@ -32,11 +31,13 @@ public class ClasseService implements IClasseService {
 
     @Override
     public boolean save(ClasseDto classeDto) {
+        // On appelle la méthode statique directement
         return classeDao.save(ClasseMapper.toClasseEntity(classeDto));
     }
 
     @Override
     public boolean update(ClasseDto classeDto) {
+        // On appelle la méthode statique directement
         return classeDao.update(ClasseMapper.toClasseEntity(classeDto));
     }
 
