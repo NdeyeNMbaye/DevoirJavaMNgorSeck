@@ -1,0 +1,43 @@
+#services:
+#
+#  mysql-m1gl:
+#    image: mysql:8.0
+#    container_name: container-mysql-m1gl
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root@123!
+#      MYSQL_DATABASE: soapdb
+#      MYSQL_USER: userm1gl
+#      MYSQL_PASSWORD: passer123@
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - mysql_data_m1gl:/var/lib/mysql
+#    networks:
+#      - dbm1gl
+#    healthcheck:
+#      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+#
+#  phpmyadmin-m1gl:
+#    image: phpmyadmin/phpmyadmin:latest
+#    container_name: container-phpmyadmin-m1gl
+#    ports:
+#      - "81:80"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root@123!
+#      PMA_HOST: mysql-m1gl
+#      PMA_USER: userm1gl
+#      PMA_PASSWORD: passer123@
+#    depends_on:
+#      - mysql-m1gl
+#    restart: unless-stopped
+#    networks:
+#      - dbm1gl
+#
+#volumes:
+#  mysql_data_m1gl:
+#    driver: local
+#
+#networks:
+#  dbm1gl:
+#
+##docker compose up -d
